@@ -11,9 +11,8 @@
 # SPDX-License-Identifier: Apache-2.0
 # *******************************************************************************
 
-load("@score_tooling//:defs.bzl", "cli_helper", "copyright_checker", "dash_license_checker", "setup_starpls", "use_format_targets")
-
 load("@score_docs_as_code//:docs.bzl", "docs")
+load("@score_tooling//:defs.bzl", "cli_helper", "copyright_checker", "dash_license_checker", "setup_starpls", "use_format_targets")
 load("//:project_config.bzl", "PROJECT_CONFIG")
 
 # Creates all documentation targets:

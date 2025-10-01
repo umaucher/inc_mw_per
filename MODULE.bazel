@@ -18,7 +18,7 @@ module(
 
 ## Toolchains (dependencies and config)
 # python
-bazel_dep(name = "rules_python", version = "1.6.3")
+bazel_dep(name = "rules_python", version = "1.4.1")
 
 PYTHON_VERSION = "3.12"
 
@@ -71,7 +71,7 @@ bazel_dep(name = "score_docs_as_code", version = "1.3.0")
 # Module deps
 bazel_dep(name = "score-baselibs", version = "0.0.0")
 bazel_dep(name = "score_platform", version = "0.3.0")
-bazel_dep(name = "score_process", version = "1.1.2")
+bazel_dep(name = "score_process", version = "1.2.0")
 
 ## additional settings / config
 crate = use_extension("@rules_rust//crate_universe:extensions.bzl", "crate")
@@ -99,6 +99,20 @@ git_override(
 
 git_override(
     module_name = "score-baselibs",
-    commit = "b96af70bec2fd77fc7e7b3b26fd01d5f5eec9d5d",
+    commit = "253571652d8f8e3df6e073ad17cb0cbb688278ee",
     remote = "https://github.com/eclipse-score/baselibs.git",
+)
+
+# ToDo: needed to get //:docs running until 0.4.0 is officially released
+git_override(
+    module_name = "score_platform",
+    commit = "64eb8acf8436c60f1a6daaf6bc67763797792838",
+    remote = "https://github.com/eclipse-score/score.git",
+)
+
+# ToDo: workaround until https://github.com/eclipse-score/baselibs/issues/20 is clarified
+git_override(
+    module_name = "score_tooling",
+    commit = "b8f58954485d8a19856a3aacdc69a6cbdd12972d",
+    remote = "https://github.com/eclipse-score/tooling.git",
 )
